@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Пашок</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+        .container {
+          max-width: 800px;
+          margin: 0 auto;
+          padding: 20px;
+        }
+        
+        .info-container {
+          background-color: #333;
+          color: #fff;
+          padding: 25px;
+          border-radius: 15px;
+          font-family: Arial, sans-serif;
+          font-size: 18px;
+          line-height: 1.7;
+          text-align: center;
+        }
+        
+        .info-container span {
+          animation: typing-animation 0.3s ease;
+          color: #fff;
+        }
+        
+        @keyframes typing-animation {
+          0% {
+            color: #00ff00;
+          }
+          100% {
+            color: #fff;
+          }
+        }
+        
+        .image-container {
+          display: flex;
+          justify-content: center;
+          margin-top: 20px;
+        }
+        
+        .image-container img {
+          max-width: 300px;
+          border: 2px solid #e29a13;
+          border-radius: 6px;
+          margin: 10px;
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .animation {
+          animation: fade-in 1s ease-in-out;
+        }
+        
+        @keyframes fade-in {
+          0% {
+            opacity: 0;
+            transform: translateY(-100px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          const infoContainer = document.querySelector(".info-container");
+          const infoText = "Азрет. Нальчиковский real-лайфер. Активизируется ночью. Опасен при игре на Тинкере. Обожает стоять мид против троих героев. Никогда не тильтует. А если и тильтует то виновата команда раков.";
+          const minDuration = 2000;
+          const maxDuration = 7000;
+          const durationPerCharacter = Math.max(minDuration, Math.min(maxDuration, infoText.length * 100));
+          let index = 0;
+          
+          function typeWriter() {
+            if (index < infoText.length) {
+              const currentChar = infoText.charAt(index);
+              const span = document.createElement('span');
+              span.textContent = currentChar;
+              infoContainer.appendChild(span);
+              index++;
+              setTimeout(typeWriter, durationPerCharacter / infoText.length);
+            }
+          }
+          
+          typeWriter();
+        });
+    </script>
+</head>
+<body>
+    <iframe src="menu.html"> </iframe>
+    <div class="container">
+        <div class="info-container"></div>
+        <div class="image-container">
+            <img src="heroes/azret/tinker.jpg" alt="Изображение 1" class="animation">
+            <img src="heroes/azret/naga.jpg" alt="Изображение 2" class="animation">
+            <img src="heroes/azret/huskar.jpg" class="animation">
+        </div>
+    </div>
+</body>
+</html>
